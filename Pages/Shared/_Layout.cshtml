@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Code Generator</title>
+    <link rel="icon" type="image/x-icon" href="">
+    <!--FOR DEVELOPMENT-->
+    <environment include="Development">
+        <!-- Bootstrap -->
+        <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true">
+        <!-- Font Awesome -->
+        <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" asp-append-version="true">
+        <!-- Custom Theme Style -->
+        <link href="~/css/custom.css" rel="stylesheet" asp-append-version="true">
+        <!-- NProgress -->
+        <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet" asp-append-version="true">
+        <!--JQUERY UI-->
+        <link href="~/css/jquery-ui.css" rel="stylesheet" asp-append-version="true">
+        <!--FORM SELECT PLUGIN-->
+        <link href="~/vendors/bootstrap/dist/css/bootstrap-select.css" rel="stylesheet" asp-append-version="true" />
+        <!--SWEET ALERT-->
+        <link href="~/vendors/sweet-alert/dist/sweetalert2.min.css" rel="stylesheet" asp-append-version="true" />
+        <!--IMAGE UPLOADER-->
+        <link href="~/css/cssvendor/imageuploader.css" rel="stylesheet" asp-append-version="true" />
+        <!--IMAGE VIEWER-->
+        <link href="~/css/cssvendor/jquery.fancybox.min.css" rel="stylesheet" asp-append-version="true" />
+        <!--LOADING CSS-->
+        <link href="~/css/loading.css" rel="stylesheet" asp-append-version="true" />
+        <!--GLOBAL DESIGN FOR ERROR-->
+        <link href="~/css/formError.css" rel="stylesheet" asp-append-version="true" />
+        <!--SCROLL BAR-->
+        <link href="~/css/scrollbar.css" rel="stylesheet" asp-append-version="true" />
+        <!--CUSTOM NAVIGATION MENU-->
+        @* <link href="~/css/treeMenu.css" rel="stylesheet" asp-append-version="true" /> *@
+        @RenderSection("Styles", false)
+    </environment>
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <!--left navigation-->
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="/" class="site_title">
+                            <span>
+                                <img src="" asp-append-version="true" />
+                            </span>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="~/img/user.png" id="js-profilePicture" class="img-circle profile_img" asp-append-version="true">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome, Renz</span>
+                            <h2>Senior Analyst</h2>
+                            <!--HIDDEN USER ROLE-->
+                            @* <input type="hidden" value="@AppHelper.UserRole" id="SESSION_HIDDEN_USER_ROLE" /> *@
+                            <!--HIDDEN USER ID-->
+                            @* <input type="hidden" value="@AppHelper.UserId" id="SESSION_USER_ID" /> *@
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section active">
+                            <h3>Administrator </h3>
+                            <ul class="nav side-menu" id="menu-container">
+                                <!--LOAD NAVIGATION MENU-->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu
+
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        @* <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Process Control">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>  *@
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="/Account/Logout">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- /left navigation-->
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu" id="js-load-top-nav">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/img/user.png" alt="" asp-append-version="true">
+                                    <span>Hi, Renz</span>
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="/profile"> Profile</a></li>
+                                    @*<li>
+                                    <a href="javascript:;">
+                                    <span class="badge bg-red pull-right">50%</span>
+                                    <span>Settings</span>
+                                    </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>*@
+                                    <li><a href="/Account/Logout" class="js-logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li>
+                            <li role="presentation" class="dropdown">
+
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main" id="mainContent">
+                @RenderBody()
+            </div>
+            <!-- /page content -->
+            <!-- loading modal-->
+            <div class="modal loading-design">
+            </div>
+            <!-- /loading modal-->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Code Generator - ©2025 All Rights Reserved.
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+    <!--FOR DEVELOPMENT-->
+    <environment include="Development">
+        <!-- jQuery -->
+        <script src="~/vendors/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+        <script src="~/js/jquery-ui.js" asp-append-version="true"></script>
+        <!-- Bootstrap -->
+        <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script src="~/vendors/bootstrap/dist/js/bootstrap-select.js" asp-append-version="true"></script>
+        <!-- FastClick -->
+        <script src="~/vendors/fastclick/lib/fastclick.js" asp-append-version="true"></script>
+        <!-- NProgress -->
+        <script src="~/vendors/nprogress/nprogress.js" asp-append-version="true"></script>
+        <!-- Chart.js -->
+        <script src="../vendors/Chart.js/dist/Chart.min.js" asp-append-version="true"></script>
+        <!-- date -->
+        <script src="~/vendors/DateJS/build/date.js" asp-append-version="true"></script>
+        <!-- image viewer -->
+        <script src="~/js/jquery.fancybox.min.js" asp-append-version="true"></script>
+        <!--PDF-->
+        <script src="~/js/jspdf.min.js" asp-append-version="true"></script>
+        <!--SWEET ALERT-->
+        <script src="~/vendors/sweet-alert/dist/sweetalert2.min.js" asp-append-version="true"></script>
+        <!--CUSTOM JS FUNCTIONS-->
+        @* <script src="~/js/functions/global.js" asp-append-version="true"></script> *@
+        @* <script src="~/js/functions/navigationMenu.js" asp-append-version="true"></script> *@
+        @* <script src="~/js/functions/userProfilePicture.js" asp-append-version="true"></script> *@
+        @RenderSection("scripts", required: false)
+        <script src="~/js/custom.js" asp-append-version="true"></script>
+
+    </environment>
+</body>
+</html>

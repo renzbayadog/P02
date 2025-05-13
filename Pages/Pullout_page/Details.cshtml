@@ -1,0 +1,38 @@
+@page "/Pullouts/{id?}"
+@using IdigitalCafe.Pages.Pullout_page.Pullout_pge
+@model DetailsModel
+
+@{
+    Layout = null;
+}
+ <div class="modal-header">
+     <h4 class="modal-title" id="myModalLabel">Pullout Details</h4>
+ </div>
+ <div class="modal-body">
+     <dl class="dl-horizontal">
+       <dt>@Html.DisplayNameFor(model => model.Pullout.PulloutName):</dt>
+						<dd>@Html.DisplayFor(model => model.Pullout.PulloutName)</dd>
+
+						<dt>@Html.DisplayNameFor(model => model.Pullout.PulloutDescription):</dt>
+						<dd>@Html.DisplayFor(model => model.Pullout.PulloutDescription)</dd>
+
+						<dt>@Html.DisplayNameFor(model => model.Pullout.PulloutDate):</dt>
+						<dd>@Html.DisplayFor(model => model.Pullout.PulloutDate)</dd>
+
+						<dt>@Html.DisplayNameFor(model => model.Pullout.SalesId):</dt>
+						<dd>@Html.DisplayFor(model => model.Pullout.SalesId)</dd>
+
+						<dt>@Html.DisplayNameFor(model => model.Pullout.ReceiptImage):</dt>
+						<dd><img width="120" height="120" src='@Html.DisplayFor(model => model.Pullout.ReceiptImage)' alt="ReceiptImage "/></dd>
+
+						<dt>@Html.DisplayNameFor(model => model.Pullout.businessValue):</dt>
+						<dd>@Html.DisplayFor(model => model.Pullout.businessValue)</dd>
+
+						<dt>@Html.DisplayNameFor(model => model.Pullout.SalesName):</dt>
+						<dd>@Html.DisplayFor(model => model.Pullout.SalesName)</dd>
+
+     </dl>
+ </div>
+ <div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-custom" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+ </div>

@@ -1,0 +1,29 @@
+@page "/Categories/Edit/{id?}"
+@using IdigitalCafe.Pages.Category_pge.Category_pge
+@model EditModel
+
+@{
+    Layout = null;
+}
+
+<form id="Category-update-form" class="form-horizontal popup-form" style="padding:15px;">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Update Category Details</h4>
+    </div>  
+    <div class="modal-body" style="padding:15px;">
+        <input type="hidden" asp-for="Category.CategoryId" id=js-categoryid />
+		
+		<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+		    <label asp-for="Category.CategoryName"></label>				
+			<input asp-for="Category.CategoryName" id="js-categoryname" class="form-control" />
+		    <span asp-validation-for="Category.CategoryName" class="text-danger"></span>
+		</div>
+    </div>
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="modal-footer">
+				<button type="submit" class="btn btn-primary btn-custom" style="margin-top:10px"><i class="fa fa-save"></i> Save</button>
+			<button type="submit" class="btn btn-primary btn-custom" data-dismiss="modal" style="margin-top:10px"><i class="fa fa-close"></i> Cancel</button>
+		</div>
+	</div>
+</form>
+

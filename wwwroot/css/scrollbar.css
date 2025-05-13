@@ -1,0 +1,44 @@
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.custom-sroll-300{
+    overflow:scroll; 
+    height:300px;
+}
+
+.custom-sroll-355 {
+    overflow: scroll;
+    height: 355px;
+}
+
+.custom-sroll-400 {
+    overflow: scroll;
+    height: 500px;
+}
+
+.custom-sroll-500 {
+    overflow: scroll;
+    height: 500px;
+}
+
+.custom-sroll-600 {
+    overflow: scroll;
+    height: 600px;
+}
